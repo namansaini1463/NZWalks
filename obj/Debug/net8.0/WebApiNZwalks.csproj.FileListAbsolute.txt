@@ -142,3 +142,4 @@ F:\Veersa\DotNet\WebApiNZwalks\WebApiNZwalks\bin\Debug\net8.0\Microsoft.AspNetCo
 F:\Veersa\DotNet\WebApiNZwalks\WebApiNZwalks\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 F:\Veersa\DotNet\WebApiNZwalks\WebApiNZwalks\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 F:\Veersa\DotNet\WebApiNZwalks\WebApiNZwalks\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+F:\Veersa\DotNet\WebApiNZwalks\WebApiNZwalks\obj\Debug\net8.0\WebApiNZwalks.sourcelink.json
