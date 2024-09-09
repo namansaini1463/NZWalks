@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Identity.Client;
+using System.Text.Json;
 using WebApiNZwalks.CustomActionFilters;
 using WebApiNZwalks.Data;
 using WebApiNZwalks.Models.Domain;
@@ -21,21 +22,41 @@ namespace WebApiNZwalks.Controllers
         private readonly NZWalksDbContext dbContext;
         private readonly IRegionRepository regionRepository;
         private readonly IMapper mapper;
+        private readonly ILogger<RegionsController> logger;
 
-        public RegionsController(NZWalksDbContext dbContext, IRegionRepository regionRepository, IMapper mapper)
+        public RegionsController(NZWalksDbContext dbContext, IRegionRepository regionRepository, IMapper mapper, ILogger<RegionsController> logger)
         {
             this.dbContext = dbContext;
             this.regionRepository = regionRepository;
             this.mapper = mapper;
+            this.logger = logger;
         }
         // GET ALL REGIONS
         // GET : https://localhost:portnumber/api/regions
         [HttpGet]
-        [Authorize(Roles = "Reader")]
+        //[Authorize(Roles = "Reader")]
         public async Task<IActionResult> GetAll()
         {
+            try
+            {
+                throw new Exception("This is a custom exception");
+                var regionsDomains = await regionRepository.GetAllAsync();
+
+                var regionsDTO = mapper.Map<List<RegionDTO>>(regionsDomains);
+
+                return Ok(regionsDTO);
+
+
+            }
+            catch (Exception exception)
+            {
+                logger.LogError(exception, exception.Message);
+            }
+
+            return Ok();
+
             // Get data from the database in the form of DOMAIN MODELS
-            var regionsDomains = await regionRepository.GetAllAsync();
+            // var regionsDomains = await regionRepository.GetAllAsync();
 
             //// Map Domain models to DTOs
             //var regionsDTO = new List<RegionDTO>();
@@ -50,11 +71,12 @@ namespace WebApiNZwalks.Controllers
             //}
 
             // Mapping the Domain models to DTOs
-            var regionsDTO = mapper.Map<List<RegionDTO>>(regionsDomains);
+            // var regionsDTO = mapper.Map<List<RegionDTO>>(regionsDomains);
 
             // Return the DTOs
+            // logger.LogInformation($"GetAll regions action method was finished running with data: {JsonSerializer.Serialize(regionsDomains)}");
 
-            return Ok(regionsDTO);
+            // return Ok(regionsDTO);
         }
 
         // GET SINGLE REGION (GET REGION BY ID)

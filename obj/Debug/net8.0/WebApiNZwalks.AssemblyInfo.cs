@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebApiNZwalks")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f082f28ed42c3f6a0157079047b020505a631bd4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8b923e31182e70c02254de8d86672af56f8f86cf")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebApiNZwalks")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebApiNZwalks")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

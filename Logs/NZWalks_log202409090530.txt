@@ -1,0 +1,4 @@
+2024-09-09 05:30:48.431 +05:30 [WRN] Failed to determine the https port for redirect.
+2024-09-09 05:30:49.062 +05:30 [ERR] This is a custom exception
+System.Exception: This is a custom exception
+   at WebApiNZwalks.Controllers.RegionsController.GetAll() in F:\Veersa\DotNet\WebApiNZwalks\WebApiNZwalks\Controllers\RegionsController.cs:line 42

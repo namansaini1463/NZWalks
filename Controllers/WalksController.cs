@@ -50,6 +50,9 @@ namespace WebApiNZwalks.Controllers
         {
             var walksDomainModels = await walkRepository.GetAllAsync(filterOn, filterQuery, sortBy, isAscending ?? true, pageNumber, pageSize);
 
+            //Creating an exception
+            throw new Exception("This is my exception in the walks controller");
+
             // Map Domain Model to DTO
             var walksDTO = mapper.Map<List<WalkDTO>>(walksDomainModels);
 
